@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Sequences For Reclamation -->
+        <record id="seq_claim_claim" model="ir.sequence">
+            <field name="name">Reclamation</field>
+            <field name="code">claim.claim</field>
+            <field name="prefix">CL-%(year)s/%(month)s/</field>
+            <field name="padding">4</field>
+            <!--<field name="suffix">SUFF-</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1000</field>
+            <field name="implementation">standard</field>-->
+        </record>
+        
+        <!-- Sequences For registration -->
+        <record id="seq_model_name" model="ir.sequence">
+            <field name="name">Reclamation</field>
+            <field name="code">registration.registration</field>
+            <field name="prefix">REG-%(year)s/%(month)s/</field>
+            <field name="padding">4</field>
+            <!--<field name="suffix">SUFF-</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1000</field>
+            <field name="implementation">standard</field>-->
+        </record>
+        
+       	<!-- menu For website page -->
+        <record id="menu_claim" model="website.menu">
+            <field name="name">Réclamation</field>
+            <field name="url">/formation/claim</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">40</field>
+        </record>
+</odoo>

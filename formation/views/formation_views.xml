@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+            <!--Tree view-->
+            <record model="ir.ui.view" id="module_tree_view">
+                <field name="name">module.module.tree</field>
+                <field name="model">module.module</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Modules">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="section_id" />
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="module_form_view">
+                <field name="name">module.module.form</field>
+                <field name="model">module.module</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Modules">
+                     <sheet>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+	                    		<field name="section_id"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                   </form>
+                </field>
+            </record>
+			
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="module_action_view">
+                <field name="name">Module</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">module.module</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+			
+								<!--Section  --> 
+
+            <!--Tree view-->
+            <record model="ir.ui.view" id="section_tree_view">
+                <field name="name">section.section.tree</field>
+                <field name="model">section.section</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Session">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="module_ids" />
+                        <field name="level_id" />
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="section_form_view">
+                <field name="name">section.section.form</field>
+                <field name="model">section.section</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                     <sheet>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+                        		<field name="level_id" />
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Modules">
+                                <field name="module_ids" >
+                                	<field name="name"/>
+                        			<field name="code" />
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                   </form>
+                </field>
+            </record>
+			
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="section_action_view">
+                <field name="name">Section</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">section.section</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+          
+            
+         <!-- Niveau -->
+         
+            <!--Tree view-->
+            <record model="ir.ui.view" id="level_tree_view">
+                <field name="name">level.level.tree</field>
+                <field name="model">level.level</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Niveau">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="cycle_id"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="level_form_view">
+                <field name="name">level.level.form</field>
+                <field name="model">level.level</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                     <sheet>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+	                    		<field name="cycle_id"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Section">
+                                <field name="section_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                   </form>
+                </field>
+            </record>
+			
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="level_action_view">
+                <field name="name">Niveau</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">level.level</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+
+			<!-- Cycle -->
+
+            <!--Tree view-->
+            <record model="ir.ui.view" id="cycle_tree_view">
+                <field name="name">cycle.cycle.tree</field>
+                <field name="model">cycle.cycle</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="cycle_form_view">
+                <field name="name">cycle.cycle.form</field>
+                <field name="model">cycle.cycle</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Niveau Universitaire">
+                     <sheet>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Niveaux">
+                                <field name="level_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                   </form>
+                </field>
+            </record>
+			
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="cycle_action_view">
+                <field name="name">Cycles Univérsitaire</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">cycle.cycle</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+
+			<!-- Registration -->
+
+            <!--Tree view-->
+            <record model="ir.ui.view" id="registration_tree_view">
+                <field name="name">registration.registration.tree</field>
+                <field name="model">registration.registration</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Inscription">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="cycle_id"/>
+                        <field name="year_id"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="registration_form_view">
+                <field name="name">registration.registration.form</field>
+                <field name="model">registration.registration</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Inscription">
+                    <header>
+                       <button name="action_new"  string="Nouveau" type="object" class="oe_highlight"/>
+                       <button name="action_done" states="cancel" string="Valider" type="object" class="oe_highlight"/>
+                       <button name="action_cancel" states="new" string="Annuler" type="object" class="oe_highlight"/>
+	                   <field name="state" widget="statusbar" />
+               		 </header>
+                     <sheet>
+                     	 <div class="oe_button_box" name="button_box">
+	                        <button name="%(claim_action_view)d"
+                                type="action"
+                                class="oe_inline oe_stat_button"
+                                icon="fa-book"
+                                context="{'search_default_regist_id': active_id}"
+                                help="show the information for this">
+                               <field name="nb_reclam" widget="statinfo" string="Reclamation"/>
+                            </button>   
+	                      </div>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+	                    		<field name="start_date"/>
+                        		<field name="end_date"/>
+                        		<field name="etudiant"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    		<field name="cycle_id"/>
+                        		<field name="year_id"/>
+                        		<!--  field name="state"/ -->
+                        		<!-- field name="nb_reclam"/ -->
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Reclamation">
+                                <field name="claims_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                     <div class="oe_chatter">
+	                    <field name="message_follower_ids" widget="mail_followers"/>
+	                    <field name="message_ids" widget="mail_thread"/>
+                	</div>
+                   </form>
+                </field>
+            </record>
+			
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="reg_action_view">
+                <field name="name">Inscription</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">registration.registration</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+ 
+            
+  	<!-- Reclamation -->
+ 	
+            <!--Tree view-->
+            <record model="ir.ui.view" id="claim_tree_view">
+                <field name="name">claim.claim.tree</field>
+                <field name="model">claim.claim</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Reclamation">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="regist_id"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="claim_form_view">
+                <field name="name">claim.claim.form</field>
+                <field name="model">claim.claim</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Reclamation">
+                     <sheet>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+	                    		<field name="start_date"/>
+	                    		<field name="regist_id"/>
+	                    		<field name="state"/>
+	                    		
+	                    		<!--field name="nb_hour"/-->
+	                    		<field name="amount"/>
+	                    		<field name="total"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    		<field name="user_id"/>
+	                    		<field name="end_date"/>
+	                    		<field name="priority" widget="priority"/>
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                   </form>
+                </field>
+            </record>
+            
+            <!--claim.claim:calendar view-->
+			<record model="ir.ui.view" id="claim_calendar_view">
+			    <field name="name">claim.claim.calendar</field>
+			    <field name="model">claim.claim</field>
+			    <field name="priority" eval="2"/>
+			    <field name="arch" type="xml">
+			    	<calendar string="Réclamation" date_start="start_date" color="user_id">
+			             <field name="name"/>
+			             <field name="code"/>
+			        </calendar>
+			    </field>
+			</record>
+					
+			  <!-- claim.claim: Search views -->
+		       <record id="claim_request_view_search" model="ir.ui.view">
+		        <field name="name">claim.claim.search</field>
+		        <field name="model">claim.claim</field>
+		        <field name="arch" type="xml">
+		            <search string="DescriptionSearch">
+		                <field name="name"/>
+		                <field name="code"/>
+		                <field name="regist_id"/>
+		                <separator/>
+		                <filter string="Nouvelle" name="new" domain="[('state', '=', 'new')]"/>
+		                <filter string="Validé" name="done" domain="[('state', '=', 'done')]"/>
+		                <filter string="Cancel" name="cancel" domain="[('state', '=', 'cancel')]"/>
+		                <group  expand='0' string='Group by...'>
+		                    <filter string='Responsable' domain="[]" context="{'group_by': 'user_id'}"/>
+		                    <filter string='Inscription' domain="[]" context="{'group_by' : 'regist_id'}"/>
+		                </group>
+		            </search>
+		        </field>
+		    </record>
+			    
+			    <!-- View Graph -->
+			    <record model="ir.ui.view" id="claim_graph_view">
+						<field name="name">claim.claim.graph</field>
+						<field name="model">claim.claim</field>
+						<field name="arch" type="xml">
+							<graph string="Graphe">
+								<field name="name" />
+								<field name="state" />
+								<field name="user_id" />
+							</graph>
+						</field>
+			</record>
+			
+			<!-- Pivot view claim -->
+		    <record id="claim_view_pivot" model="ir.ui.view">
+		        <field name="name">claim.claim.pivot</field>
+		        <field name="model">claim.claim</field>
+		        <field name="arch" type="xml">
+		            <pivot string="Réclamtion Pivot">
+		                <field name="name"/>
+						<field name="state" />
+						<field name="user_id" />
+		            </pivot>
+		        </field>
+		    </record>
+			
+		<!-- claim.claim :view kanban -->
+		<record model="ir.ui.view" id="claim_kanban_view">
+			<field name="name">claim.claim.Kanban</field>
+			<field name="model">claim.claim</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<templates>
+						<field name="name" />
+						<field name="regist_id"/>
+						<field name="description"/>
+						<t t-name="kanban-box">
+		                    <div class="oe_kanban_global_click">
+		                        <field name="name"/>
+		                        <div class="oe_kanban_details">
+		                            <strong>
+		                                <field name="code"/>
+		                            </strong>
+		                            <ul>
+		                                <li t-if="record.name.raw_value"><field name="start_date"/></li>
+		                                <li t-if="record.regist_id.raw_value"><i class="fa fa-phone"></i> <field name="regist_id"/></li>
+		                                <li t-if="record.description.raw_value"><field name="description"/></li>
+		                                <li t-if="record.priority.raw_value"><field name="priority" widget="priority"/></li>
+		                            </ul>
+		                        </div>
+		                    </div>
+                    	</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+		
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="claim_action_view">
+                <field name="name">Reclamation</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">claim.claim</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+		   
+
+
+			<!-- Session -->
+			
+            <!--Tree view-->
+            <record model="ir.ui.view" id="session_tree_view">
+                <field name="name">session.session.tree</field>
+                <field name="model">session.session</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="session_form_view">
+                <field name="name">session.session.form</field>
+                <field name="model">session.session</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Session">
+                     <sheet>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Page">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                   </form>
+                </field>
+            </record>
+			
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="session_action_view">
+                <field name="name">Session</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">session.session</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+            
+          <!-- Year -->
+          
+            <!--Tree view-->
+            <record model="ir.ui.view" id="year_tree_view">
+                <field name="name">year.year.tree</field>
+                <field name="model">year.year</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+            </record>
+            
+			<!--form view-->
+            <record model="ir.ui.view" id="year_form_view">
+                <field name="name">year.year.form</field>
+                <field name="model">year.year</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                     <sheet>
+                    	<group>
+	                    	<group>
+	                    		<field name="name"/>
+	                    	</group>
+	                    	<group>
+	                    		<field name="code"/>
+	                    	</group>
+                    	</group>
+                    	<notebook>
+                            <page string="Page">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                   </form>
+                </field>
+            </record>
+			
+			<!-- Action view-->
+            <record model="ir.actions.act_window" id="year_action_view">
+                <field name="name">Année</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">year.year</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+            
+            
+			<!-- Action 2 view-->
+            <record model="ir.actions.act_window" id="student_action_view">
+                <field name="name">Etudiants</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.partner</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form,kanban</field>
+                <field name="domain">[('student_ok','=',True)]</field>
+                <field name="context">{'default_student_ok':'value'}</field>
+            </record>
+            
+            <!-- Action 3 view-->
+            <record model="ir.actions.act_window" id="teacher_action_view">
+                <field name="name">Professeur</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">teacher.teacher</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form,kanban</field>
+                <!-- field name="domain">[('student_ok','=',True)]</field -->
+                <!-- <field name="context">{'default_field':'value'}</field>-->
+            </record>
+
+			<record model="ir.ui.view" id="student_inh_partner_view">
+			    <field name="name">student.partner.form</field>
+			    <field name="model">res.partner</field>
+			    <field name="inherit_id" ref="base.view_partner_form"/>
+			    <field name="arch" type="xml">
+			        <data>
+			            <xpath expr="//page[@name='internal_notes']" position="after">
+			            <page string="Infos Etudiant">
+				            <group>
+				                <field name="student_ok"/>
+				                <field name="birthday"/>
+				                <field name="age" attrs="{'readonly':[('student_ok','=',True)]}" />
+				                <!-- field name="reg_ids"/ -->
+				            </group>
+			             </page>
+			            </xpath>
+			            <xpath expr="//page[@name='sales_purchases']" position="after">
+			            <page string="Inscription" attrs="{'invisible':[('customer','=',True)]}">
+				                <field name="reg_ids" string=""/>
+			             </page>
+			            </xpath>
+			                    
+			    		<xpath expr="//page[@name='sales_purchases']" position="attributes">
+			            	<attribute name='attrs'>{"invisible":[('student_ok','=',True)]}</attribute>
+			            </xpath>
+	
+			        </data>
+			    </field>
+			</record>
+
+</odoo>
